@@ -1,31 +1,3 @@
-import random
-
-def crear_tablero(tamano):
-    """
-    Crea un tablero de tamaño N x N inicializado con False (sin barcos).
-    """
-    return [[False for _ in range(tamano)] for _ in range(tamano)]
-
-def imprimir_tablero(tablero, revelar_barcos=False):
-    """
-    Imprime el tablero. Si revelar_barcos es True, muestra la ubicación de los barcos.
-    """
-    for fila in tablero:
-        print(" ".join("B" if celda is True and revelar_barcos else "X" if celda == "X" else "O" if celda == "O" else "~" for celda in fila))
-
-def colocar_barcos(tablero, cantidad_barcos):
-    """
-    Coloca una cantidad de barcos en posiciones aleatorias del tablero.
-    """
-    barcos_colocados = 0
-    tamano = len(tablero)
-    while barcos_colocados < cantidad_barcos:
-        fila = random.randint(0, tamano - 1)
-        columna = random.randint(0, tamano - 1)
-        if not tablero[fila][columna]:  # Verifica que no haya un barco en esta posición
-            tablero[fila][columna] = True
-            barcos_colocados += 1
-
 def jugar():
     """
     Función principal del juego.
@@ -53,14 +25,34 @@ def jugar():
         except ValueError:
             print("Por favor, ingrese un número válido.")
 
-    cantidad_disparos = tamano_tablero * 2  # Por ejemplo, permitir el doble del tamaño del tablero como intentos
+    cantidad_disparos = cantidad_barcos * 2  # Por ejemplo, permitir el doble de la cantidad de barcos
 
     print(f"\nEl tablero es de tamaño {tamano_tablero}x{tamano_tablero}.")
     print(f"Hay {cantidad_barcos} barcos escondidos.")
-    print(f"Tienes {cantidad_disparos} disparos para encontrarlos.\n")
+    print(f"Tenes {cantidad_disparos} disparos para encontrarlos.\n")
 
     # Crear el tablero y colocar los barcos
-    tablero = crear_tablero(tamano_tablero)
+        tablero = crear_tablero(tamano_tablero)
+        colocar_barcos(tablero, cantidad_barcos)
+    
+    def colocar_barcos(tablero, cantidad):
+        """
+        Coloca una cantidad de barcos aleatoriamente en el tablero.
+        """
+        import random
+        tamano = len(tablero)
+        barcos_colocados = 0
+        while barcos_colocados < cantidad:
+            fila = random.randint(0, tamano - 1)
+            columna = random.randint(0, tamano - 1)
+            if not tablero[fila][columna]:
+                tablero[fila][columna] = True
+                barcos_colocados += 1
+    def crear_tablero(tamano):
+        """
+        Crea un tablero vacío de tamaño tamano x tamano.
+        """
+        return [[False for _ in range(tamano)] for _ in range(tamano)]
     colocar_barcos(tablero, cantidad_barcos)
 
     disparos_restantes = cantidad_disparos
@@ -89,7 +81,7 @@ def jugar():
             disparos_acertados += 1
         elif tablero[fila][columna] in ["X", "O"]:
             print("Ya disparaste en esta posición. Intenta de nuevo.")
-            continue
+        imprimir_tablero(tablero, revelar_barcos=True)
         else:
             print("¡Fallaste!")
             tablero[fila][columna] = "O"  # Marcar como disparo fallido
@@ -106,8 +98,22 @@ def jugar():
     print("\n¡Juego terminado!")
     print(f"Disparos acertados: {disparos_acertados}")
     print(f"Disparos fallados: {disparos_fallados}")
-    print("\nTablero final:")
-    imprimir_tablero(tablero, revelar_barcos=True)
 
-if __name__ == "__main__":
-    jugar()
+    # Mostrar la posición de todos los barcos
+    print("\nPosiciones de todos los barcos:")
+        imprimir_tablero(tablero, revelar_barcos=True)
+    
+    def imprimir_tablero(tablero, revelar_barcos=False):
+        """
+        Función para imprimir el tablero.
+        Si revelar_barcos es True, muestra la posición de los barcos.
+        """
+        for fila in tablero:
+            for celda in fila:
+                if celda is True and not revelar_barcos:
+                    print("~", end=" ")  # Ocultar barcos
+                elif celda is True and revelar_barcos:
+                    print("B", end=" ")  # Mostrar barcos
+                else:
+                    print(celda, end=" ")
+            print()
