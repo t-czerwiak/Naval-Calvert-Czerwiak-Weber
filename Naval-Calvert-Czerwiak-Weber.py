@@ -1,10 +1,10 @@
 """
-Hola Chona, soy Timo C, en este proyecto me ayude mucho de Copilot, pero fui cambiando el codigo o partes que
-no enseñaste (tales como if not in, etc), la verdad me ayuda mucho usar Copilot para entender la sintaxis, y no
-creo que me afecte usar mucho una IA en proyectos, se que alfinal yo tengo que saber que hay escrito en el codigo y 
-como funciona, asi que intento yo editar o mejorar las partes que no me cuadran.
+Hola Chona, somos Timo c, Mayte Cal y Juli Weber, en este proyecto nos ayudamos mucho de Copilot, pero fuimos cambiando el codigo o partes que
+no enseñaste (tales como if not in, etc), la verdad nos ayudo mucho usar Copilot para entender la sintaxis, y no
+creo que nos afecte usar mucho una IA en proyectos, se que alfinal tenemos que saber que hay escrito en el codigo y 
+como funciona.
 
-continue fue algo que aprendi en este proyecto buscando en stackoverflow y me parece mejor que usar return
+continue fue algo que aprendimos en este proyecto buscando en stackoverflow y nos parecio mejor que usar return
 ya que sino hay que empezar todo devuelta.
 """
 
