@@ -10,24 +10,24 @@ ya que sino hay que empezar todo devuelta.
 
 import random
 
-# Función para crear un tablero vacío de tamaño N x N, usando list list bool
+# Funcion para crear un tablero vacio de tamaño N x N, usando list list bool
 def crear_tablero(tamano):
 
-    #Crea un tablero de tamaño N x N inicializado con False (sin barcos).
+    #Crea un tablero de tamaño N x N inicializado con False (sin barcos)
 
     return [[False for _ in range(tamano)] for _ in range(tamano)]
 
-# Función para imprimir el tablero
+# Funcion para imprimir el tablero
 def imprimir_tablero(tablero, revelar_barcos = False):
 
-   #Imprime el tablero. Si revelar_barcos es True, muestra la ubicación de los barcos.
+   #Imprime el tablero. Si revelar_barcos es True, muestra la ubicacion de los barcos
 
     for fila in tablero:
         print(" ".join("❌" if celda is True and revelar_barcos else "❌" if celda == "❌" else "🧊" if celda == "🧊" else "❔" for celda in fila))
 
 def colocar_barcos_manual(tablero, cantidad_barcos):
 
-    #Permite a un jugador colocar manualmente los barcos en el tablero.
+    #Permite a un jugador colocar manualmente los barcos en el tablero
 
     print("\nColoca tus barcos en el tablero.")
     for i in range(cantidad_barcos):
@@ -44,7 +44,7 @@ def colocar_barcos_manual(tablero, cantidad_barcos):
                     print("El tamaño del barco debe estar entre 1 y 3.")
                     continue
                 
-                # Validar orientación
+                # Validar orientacion
                 if orientacion != "H" and orientacion != "V":
                     print("Orientación inválida. Use 'H' para horizontal o 'V' para vertical.")
                     continue
@@ -57,7 +57,7 @@ def colocar_barcos_manual(tablero, cantidad_barcos):
                     print("El barco no cabe verticalmente en esta posición.")
                     continue
 
-                # Verificar si las posiciones están libres
+                # Verificar si las posiciones estan libres
                 posiciones_validas = True
                 for j in range(tamano_barco):
                     if orientacion == "H" and tablero[fila][columna + j]:
@@ -82,11 +82,11 @@ def colocar_barcos_manual(tablero, cantidad_barcos):
             except ValueError:
                 print("Por favor, ingrese valores validos.")
 
-# Función principal del juego
+# Funcion principal del juego
 def jugar():
     print("¡Bienvenido a Batalla Naval!")
 
-    # Solicitar tamaño del tablero
+    # Pide el tamaño del tablero
     while True:
         try:
             tamano_tablero = int(input("Ingrese el tamaño del tablero (ej: 10 para un tablero 10x10): "))
@@ -97,7 +97,7 @@ def jugar():
         except ValueError:
             print("Por favor, ingrese un numero válido.")
 
-    # Solicitar cantidad de barcos
+    # Pide la cantidad de barcos
     while True:
         try:
             cantidad_barcos = int(input(f"Ingrese la cantidad de barcos (máximo {tamano_tablero * tamano_tablero}): "))
@@ -108,7 +108,7 @@ def jugar():
         except ValueError:
             print("Por favor, ingrese un numero válido.")
 
-    # Crear tableros para ambos jugadores
+    # Crea tableros para ambos jugadores
     tablero_jugador1 = crear_tablero(tamano_tablero)
     tablero_jugador2 = crear_tablero(tamano_tablero)
 
@@ -195,5 +195,4 @@ def jugar():
     print("\nTablero final Jugador 2:")
     imprimir_tablero(tablero_jugador2, revelar_barcos=True)
 
-# Punto de entrada del programa
 jugar()
