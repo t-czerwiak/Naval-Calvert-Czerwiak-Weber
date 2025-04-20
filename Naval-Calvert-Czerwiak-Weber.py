@@ -10,7 +10,7 @@ ya que sino habría que empezar todo devuelta.
 https://www.w3schools.com/python/ref_keyword_continue.asp
 https://docs.python.org/es/3.13/library/random.html
 https://www.w3schools.com/python/ref_keyword_break.asp
-https://chatgpt.com/share/68046873-992c-800c-910c-d289c1442b81
+https://chatgpt.com/share/68046873-992c-800c-910c-d289c1442b81 - a modo de inspiracion para ordenar las ideas
 https://codefinity.com/blog/All-About-Exceptions-in-Python-and-How-to-Catch-Them?utm_source=google&utm_medium=cpc&utm_campaign=21380043065&utm_content=&utm_term=&dki=&gad_source=1&gclid=CjwKCAjwk43ABhBIEiwAvvMEB_NS96ZLWARDMlLEJ_-lEDzMkYnOfQJTPuZz2UvW21nOOlC_r9bjDBoCHswQAvD_BwE
 
 """
