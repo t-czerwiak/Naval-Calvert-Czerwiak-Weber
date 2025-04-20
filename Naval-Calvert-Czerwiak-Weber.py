@@ -1,11 +1,11 @@
 """
-Hola Chona, somos Timo c, Mayte Cal y Juli Weber, en este proyecto nos ayudamos mucho de Copilot, pero fuimos cambiando el codigo o partes que
-no enseñaste (tales como if not in, etc), la verdad nos ayudo mucho usar Copilot para entender la sintaxis, y no
-creo que nos afecte usar mucho una IA en proyectos, se que alfinal tenemos que saber que hay escrito en el codigo y 
+Hola Chona, somos Timo C, Mayte C y Juli W. En este proyecto nos ayudamos mucho de Copilot, pero fuimos cambiando el código o partes que
+no enseñaste (tales como if not in, etc), la verdad nos ayudo mucho utilizar esta herramienta para entender la sintaxis, y no
+creo que nos afecte usar mucho una IA en proyecto. Sabemos que al final tenemos que comprender que hay escrito en el mismo y 
 como funciona.
 
-continue fue algo que aprendimos en este proyecto buscando en stackoverflow y nos parecio mejor que usar return
-ya que sino hay que empezar todo devuelta.
+Continue fue algo que aprendimos en este proyecto buscando en stackoverflow y nos pareció mejor que usar return
+ya que sino habría que empezar todo devuelta.
 """
 
 import random
@@ -13,7 +13,7 @@ import random
 # Funcion para crear un tablero vacio de tamaño N x N, usando list list bool
 def crear_tablero(tamano):
 
-    #Crea un tablero de tamaño N x N inicializado con False (sin barcos)
+    #Crea un tablero de tamaño N x N - inicia con False (sin barcos)
 
     return [[False for _ in range(tamano)] for _ in range(tamano)]
 
@@ -27,7 +27,7 @@ def imprimir_tablero(tablero, revelar_barcos = False):
 
 def colocar_barcos_manual(tablero, cantidad_barcos):
 
-    #Permite a un jugador colocar manualmente los barcos en el tablero
+    #Permite a un jugador poner manualmente los barcos en el tablero
 
     print("\nColoca tus barcos en el tablero.")
     for i in range(cantidad_barcos):
@@ -39,17 +39,17 @@ def colocar_barcos_manual(tablero, cantidad_barcos):
                 orientacion = input("Ingrese la orientación (H para horizontal, V para vertical): ")
                 tamano_barco = int(input("Ingrese el tamaño del barco (1-3): "))
                 
-                # Validar tamaño del barco
+                # Valida el tamaño del barco
                 if tamano_barco < 1 or tamano_barco > 3:
                     print("El tamaño del barco debe estar entre 1 y 3.")
                     continue
                 
-                # Validar orientacion
+                # Valida la orientacion
                 if orientacion != "H" and orientacion != "V":
                     print("Orientación inválida. Use 'H' para horizontal o 'V' para vertical.")
                     continue
 
-                # Verificar si el barco cabe en el tablero
+                # Verifica si el barco entra en el tablero
                 if orientacion == "H" and columna + tamano_barco > len(tablero):
                     print("El barco no cabe horizontalmente en esta posición.")
                     continue
@@ -57,7 +57,7 @@ def colocar_barcos_manual(tablero, cantidad_barcos):
                     print("El barco no cabe verticalmente en esta posición.")
                     continue
 
-                # Verificar si las posiciones estan libres
+                # Verifica si las posiciones estan desocupadas
                 posiciones_validas = True
                 for j in range(tamano_barco):
                     if orientacion == "H" and tablero[fila][columna + j]:
@@ -71,7 +71,7 @@ def colocar_barcos_manual(tablero, cantidad_barcos):
                     print("Una o mas posiciones ya están ocupadas. Intenta de nuevo.")
                     continue
 
-                # Colocar el barco en el tablero
+                # Coloca el barco en el tablero
                 for j in range(tamano_barco):
                     if orientacion == "H":
                         tablero[fila][columna + j] = True
@@ -112,13 +112,13 @@ def jugar():
     tablero_jugador1 = crear_tablero(tamano_tablero)
     tablero_jugador2 = crear_tablero(tamano_tablero)
 
-    # Colocar barcos manualmente para ambos jugadores
+    # Coloca barcos manualmente para ambos jugadores
     print("\nJugador 1, coloque sus barcos:")
     colocar_barcos_manual(tablero_jugador1, cantidad_barcos)
     print("\nJugador 2, coloque sus barcos:")
     colocar_barcos_manual(tablero_jugador2, cantidad_barcos)
 
-    # Inicializar tableros visibles
+    # Tableros visibles
     tablero_visible_jugador1 = [["❔" for _ in range(tamano_tablero)] for _ in range(tamano_tablero)]
     tablero_visible_jugador2 = [["❔" for _ in range(tamano_tablero)] for _ in range(tamano_tablero)]
 
@@ -142,12 +142,12 @@ def jugar():
             print("Por favor, ingrese numeros válidos.")
             continue
 
-        # Validar coordenadas
+        # Valida las coordenadas
         if fila < 0 or fila >= tamano_tablero or columna < 0 or columna >= tamano_tablero:
             print("Coordenadas fuera de rango, intente de nuevo.")
             continue
 
-        # Verificar el disparo
+        # Verifica el disparo
         if turno_jugador == 1:
             tablero_oponente = tablero_jugador2
             tablero_visible = tablero_visible_jugador2
@@ -175,7 +175,7 @@ def jugar():
 
         disparos_restantes -= 1
 
-        # Verificar si se hundieron todos los barcos
+        # Verifica si se hundieron todos los barcos
         if disparos_acertados_jugador1 == cantidad_barcos:
             print("\n¡Felicidades Jugador 1! Hundiste todos los barcos del Jugador 2.")
             break
@@ -183,7 +183,7 @@ def jugar():
             print("\n¡Felicidades Jugador 2! Hundiste todos los barcos del Jugador 1.")
             break
 
-        # Cambiar turno
+        # Cambia el turno
         turno_jugador = 2 if turno_jugador == 1 else 1
 
     # Fin del juego
