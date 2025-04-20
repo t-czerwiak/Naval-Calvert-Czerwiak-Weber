@@ -6,8 +6,15 @@ como funciona.
 
 Continue fue algo que aprendimos en este proyecto buscando en stackoverflow y nos pareció mejor que usar return
 ya que sino habría que empezar todo devuelta.
+
+https://www.w3schools.com/python/ref_keyword_continue.asp
+https://docs.python.org/es/3.13/library/random.html
+https://www.w3schools.com/python/ref_keyword_break.asp
+https://codefinity.com/blog/All-About-Exceptions-in-Python-and-How-to-Catch-Them?utm_source=google&utm_medium=cpc&utm_campaign=21380043065&utm_content=&utm_term=&dki=&gad_source=1&gclid=CjwKCAjwk43ABhBIEiwAvvMEB_NS96ZLWARDMlLEJ_-lEDzMkYnOfQJTPuZz2UvW21nOOlC_r9bjDBoCHswQAvD_BwE
+
 """
 
+# Llamado a la libreria de python
 import random
 
 # Funcion para crear un tablero vacio de tamaño N x N, usando list list bool
@@ -25,9 +32,8 @@ def imprimir_tablero(tablero, revelar_barcos = False):
     for fila in tablero:
         print(" ".join("❌" if celda is True and revelar_barcos else "❌" if celda == "❌" else "🧊" if celda == "🧊" else "❔" for celda in fila))
 
+    #Funcion que le permite a un jugador poner manualmente los barcos en el tablero
 def colocar_barcos_manual(tablero, cantidad_barcos):
-
-    #Permite a un jugador poner manualmente los barcos en el tablero
 
     print("\nColoca tus barcos en el tablero.")
     for i in range(cantidad_barcos):
@@ -50,11 +56,11 @@ def colocar_barcos_manual(tablero, cantidad_barcos):
                     continue
 
                 # Verifica si el barco entra en el tablero
-                if orientacion == "H" and columna + tamano_barco > len(tablero):
-                    print("El barco no cabe horizontalmente en esta posición.")
+                if orientacion == "H" and columna + tamano_barco > len(tablero)
+                    print("El barco no entra horizontalmente en esta posición.")
                     continue
                 if orientacion == "V" and fila + tamano_barco > len(tablero):
-                    print("El barco no cabe verticalmente en esta posición.")
+                    print("El barco no entra verticalmente en esta posición.")
                     continue
 
                 # Verifica si las posiciones estan desocupadas
