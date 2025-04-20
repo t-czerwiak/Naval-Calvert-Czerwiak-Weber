@@ -10,6 +10,7 @@ ya que sino habría que empezar todo devuelta.
 https://www.w3schools.com/python/ref_keyword_continue.asp
 https://docs.python.org/es/3.13/library/random.html
 https://www.w3schools.com/python/ref_keyword_break.asp
+https://chatgpt.com/share/68046873-992c-800c-910c-d289c1442b81
 https://codefinity.com/blog/All-About-Exceptions-in-Python-and-How-to-Catch-Them?utm_source=google&utm_medium=cpc&utm_campaign=21380043065&utm_content=&utm_term=&dki=&gad_source=1&gclid=CjwKCAjwk43ABhBIEiwAvvMEB_NS96ZLWARDMlLEJ_-lEDzMkYnOfQJTPuZz2UvW21nOOlC_r9bjDBoCHswQAvD_BwE
 
 """
@@ -38,6 +39,7 @@ def colocar_barcos_manual(tablero, cantidad_barcos):
     print("\nColoca tus barcos en el tablero.")
     for i in range(cantidad_barcos):
         while True:
+        # Detecta errores - Si se llegan a equivocar el código no falla y te muestra un mensaje de error
             try:
                 print(f"\nColocando barco {i + 1} (puede ocupar hasta 3 casillas).")
                 fila = int(input(f"Ingrese la fila inicial (0-{len(tablero) - 1}): "))
@@ -48,7 +50,8 @@ def colocar_barcos_manual(tablero, cantidad_barcos):
                 # Valida el tamaño del barco
                 if tamano_barco < 1 or tamano_barco > 3:
                     print("El tamaño del barco debe estar entre 1 y 3.")
-                    continue
+                    continue 
+                    # Si esto no se cumple, vuelve al while true para no salir del bucle
                 
                 # Valida la orientacion
                 if orientacion != "H" and orientacion != "V":
@@ -68,6 +71,7 @@ def colocar_barcos_manual(tablero, cantidad_barcos):
                 for j in range(tamano_barco):
                     if orientacion == "H" and tablero[fila][columna + j]:
                         posiciones_validas = False
+                        # Rompe el ciclo de un while for, no como continue que te manda al siguiente
                         break
                     if orientacion == "V" and tablero[fila + j][columna]:
                         posiciones_validas = False
