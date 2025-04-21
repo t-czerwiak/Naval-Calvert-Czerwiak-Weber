@@ -59,7 +59,7 @@ def colocar_barcos_manual(tablero, cantidad_barcos):
                     continue
 
                 # Verifica si el barco entra en el tablero
-                if orientacion == "H" and columna + tamano_barco > len(tablero)
+                if orientacion == "H" and columna + tamano_barco > len(tablero):
                     print("El barco no entra horizontalmente en esta posición.")
                     continue
                 if orientacion == "V" and fila + tamano_barco > len(tablero):
